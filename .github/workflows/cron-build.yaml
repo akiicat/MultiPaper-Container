@@ -3,6 +3,7 @@ name: Trigger Site Rebuild on a CRON Schedule
 on:
   schedule:
     - cron: '*/1 * * * *'
+    - cron: '26 * * * *'
 
 jobs:
   push_to_registries:
