@@ -9,6 +9,12 @@ on:
     - cron: '30 * * * *'
 
 jobs:
+  cron:
+    name: Cron
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
   push_to_registries:
     name: Push Docker image to multiple registries
     runs-on: ubuntu-latest
