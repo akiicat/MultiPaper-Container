@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '*/1 * * * *'
     - cron: '26 * * * *'
+    - cron: '28 * * * *'
+    - cron: '29 * * * *'
+    - cron: '30 * * * *'
 
 jobs:
   push_to_registries:
