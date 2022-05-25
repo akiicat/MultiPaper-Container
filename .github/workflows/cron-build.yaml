@@ -2,7 +2,7 @@ name: Trigger Site Rebuild on a CRON Schedule
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/1 * * * *'
 
 jobs:
   push_to_registries:
@@ -12,8 +12,8 @@ jobs:
       packages: write
       contents: read
     steps:
-      #- name: Check out the repo
-      #  uses: actions/checkout@v3
+      - name: Check out the repo
+        uses: actions/checkout@v3
       - name: pwd
         run: pwd
       - name: ls
