@@ -25,7 +25,8 @@ jobs:
         run: ls
       - name: export
         run: export
-
+      - name: time
+        run: date > time.txt
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automated Change
