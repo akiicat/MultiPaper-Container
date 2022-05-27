@@ -28,6 +28,16 @@ jobs:
         run: export
       - name: time
         run: date > time.txt
+
+      - name: get version
+        run: . ./get-versions.sh
+      - name: version
+        run: echo $version
+      - name: build
+        run: echo $build
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automated Change
+          branch: feature-123
+          create_branch: true

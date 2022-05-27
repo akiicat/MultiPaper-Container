@@ -19,10 +19,10 @@ for version in "${versions[@]}"; do
 done
 echo "$version $build"
 
-curl \
-  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/OWNER/REPO/git/tags \
-  -d '{"tag":"v0.0.1","message":"initial version","object":"c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c","type":"commit","tagger":{"name":"Monalisa Octocat","email":"octocat@github.com","date":"2011-06-17T14:53:35-07:00"}}'
+# curl \
+#   -X POST \
+#   -H "Accept: application/vnd.github.v3+json" \
+#   https://api.github.com/repos/OWNER/REPO/git/tags \
+#   -d '{"tag":"v0.0.1","message":"initial version","object":"c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c","type":"commit","tagger":{"name":"Monalisa Octocat","email":"octocat@github.com","date":"2011-06-17T14:53:35-07:00"}}'
 
 
