@@ -36,6 +36,9 @@ jobs:
       - name: build
         run: echo $build
 
+      - name: git pull
+        run: git pull
+
       - name: git show-ref refs/heads/feature-123
         run: git show-ref refs/heads/feature-123
 
