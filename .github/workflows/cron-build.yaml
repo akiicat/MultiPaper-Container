@@ -31,25 +31,4 @@ jobs:
 
       - name: get version
         run: . ./get-versions.sh
-      - name: version
-        run: echo $version
-      - name: build
-        run: echo $build
-
-      - name: git pull
-        run: git pull
-
-      - name: check branch
-        run: git rev-parse --verify origin/feature-123
-
-      - name: set INPUT_BRANCH
-        run: export INPUT_BRANCH=feature-123-$build
-
-
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Automated Change
-          branch:
-          create_branch: true
 
