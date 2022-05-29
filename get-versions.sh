@@ -35,8 +35,8 @@ git checkout -B "$INPUT_BRANCH" --
 git add .
 
 git -c user.name="$INPUT_COMMIT_USER_NAME" -c user.email="$INPUT_COMMIT_USER_EMAIL" \
-        --author="$INPUT_COMMIT_AUTHOR" \
-        commit -m "$INPUT_COMMIT_MESSAGE"
+        commit -m "$INPUT_COMMIT_MESSAGE" \
+        --author="$INPUT_COMMIT_AUTHOR"
 
 # git push
 git push --set-upstream origin $INPUT_BRANCH
