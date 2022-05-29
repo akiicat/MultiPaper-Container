@@ -17,7 +17,29 @@ for version in "${versions[@]}"; do
         done
         break
 done
+
+set -x
+date > time.txt
+
 echo "$version $build"
+
+INPUT_BRANCH="feature-123-$build"
+INPUT_COMMIT_USER_NAME="My GitHub Actions Bot"
+INPUT_COMMIT_USER_EMAIL="my-github-actions-bot@example.org"
+INPUT_COMMIT_AUTHOR="Author <actions@github.com>"
+INPUT_COMMIT_MESSAGE="Auto Commit"
+
+
+git checkout -B "$INPUT_BRANCH" --
+
+git add .
+
+git -c user.name="$INPUT_COMMIT_USER_NAME" -c user.email="$INPUT_COMMIT_USER_EMAIL" \
+        --author="$INPUT_COMMIT_AUTHOR" \
+        commit -m "$INPUT_COMMIT_MESSAGE"
+
+# git push
+git push --set-upstream origin $INPUT_BRANCH
 
 # curl \
 #   -X POST \
