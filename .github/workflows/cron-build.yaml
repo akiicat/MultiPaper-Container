@@ -40,9 +40,6 @@ jobs:
         run: git pull
 
       - name: check branch
-        run: git rev-parse --verify feature-123
-
-      - name: check branch
         run: git rev-parse --verify origin/feature-123
 
       - uses: stefanzweifel/git-auto-commit-action@v4
