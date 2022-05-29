@@ -45,8 +45,11 @@ jobs:
       - name: set INPUT_BRANCH
         run: export INPUT_BRANCH=feature-123-$build
 
+
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automated Change
+          branch:
           create_branch: true
 
