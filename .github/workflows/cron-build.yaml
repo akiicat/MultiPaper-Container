@@ -24,24 +24,29 @@ jobs:
       - name: get tag
         run: git tag
 
+      - name: get tag remote
+        run: git ls-remote --tags
+
       - name: get version
         run: ./get-versions.sh
+
       - name: version
         id: version
-        run: echo $version
-      - name: build
-        id: build
-        run: echo $build
-      - name: version
         run: cat version
       - name: build
+        id: build
         run: cat build
 
-      - run: |
-          date > test.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "[AUTO] publish multipaper v$(cat version)-$(cat build)"
-          git push
+      - name: tag_msg
+        id: tag_msg
+        run: echo "v$(cat version)-$(cat build)"
+
+      - name: commit_msg
+        id: commit_msg
+        run: echo "[AUTO] publish multipaper v$(cat version)-$(cat build)"
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ${{ steps.commit_msg.outputs.msg }}
+          tagging_message: ${{ steps.tag_msg.outputs.msg }}
 
