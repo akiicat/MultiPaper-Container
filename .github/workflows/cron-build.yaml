@@ -59,7 +59,7 @@ jobs:
 
       - name: tag_msg
         id: tag_msg
-        run: echo "::set-output v$(cat version)-$(cat build)"
+        run: echo "::set-output name=vtest::v$(cat version)-$(cat build)"
 
       - name: commit_msg
         id: commit_msg
@@ -71,6 +71,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: ${{steps.commit_msg.outputs.stdout}}
-          tagging_message: ${{steps.tag_msg.outputs.stdout}}
+          tagging_message: ${{steps.tag_msg.outputs.vtest}}
           # commit_message: Automated Change
 
