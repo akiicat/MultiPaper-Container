@@ -1,8 +1,8 @@
 name: Trigger Site Rebuild on a CRON Schedule
 
 on:
-  # schedule:
-  #   - cron: '*/30 * * * *'
+  schedule:
+    - cron: '*/30 * * * *'
   push:
     branches:
       - 'main'
@@ -20,13 +20,9 @@ jobs:
         with:
           # repo and workload scopes
           token: ${{ secrets.PAT }}
-      - name: pwd
-        run: |
-          pwd
-          ls
-          export
-          cd ..
-          ls
+
+      - name: get tag
+        run: git tag
 
       - name: get version
         run: ./get-versions.sh
@@ -41,10 +37,11 @@ jobs:
       - name: build
         run: cat build
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Automated Change
-          branch: publish
-          tagging_message: v${{ steps.version.outputs.msg }}-${{ steps.build.outputs.msg }}
-          create_branch: true
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add version
+          git add build
+          git commit -m "[AUTO] publish multipaper v$(cat version)-$(cat build)"
+          git push
 
