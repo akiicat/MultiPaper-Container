@@ -26,20 +26,28 @@ jobs:
         run: ls
       - name: export
         run: export
+      - name: cd ..
+        run: cd ..
+      - name: ls
+        run: ls
 
       - name: get version
-        run: . ./get-versions.sh
+        run: ./get-versions.sh
       - name: version
         id: version
         run: echo $version
       - name: build
         id: build
         run: echo $build
+      - name: version
+        run: cat version
+      - name: build
+        run: cat build
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automated Change
-          branch: feature-123-${{ steps.version.outputs.msg }}
+          branch: publish
           tagging_message: v${{ steps.version.outputs.msg }}-${{ steps.build.outputs.msg }}
           create_branch: true
 

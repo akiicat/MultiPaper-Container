@@ -23,6 +23,12 @@ git tag
 
 echo "$version $build"
 
+echo "$version" > version
+echo "$build" > build
+
+# export version=$version
+# export build=$build
+
 # curl \
 #   -X POST \
 #   -H "Accept: application/vnd.github.v3+json" \
