@@ -21,15 +21,12 @@ jobs:
           # repo and workload scopes
           token: ${{ secrets.PAT }}
       - name: pwd
-        run: pwd
-      - name: ls
-        run: ls
-      - name: export
-        run: export
-      - name: cd ..
-        run: cd ..
-      - name: ls
-        run: ls
+        run: |
+          pwd
+          ls
+          export
+          cd ..
+          ls
 
       - name: get version
         run: ./get-versions.sh
