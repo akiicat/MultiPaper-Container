@@ -41,8 +41,7 @@ jobs:
           date > test.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add version
-          git add build
+          git add .
           git commit -m "[AUTO] publish multipaper v$(cat version)-$(cat build)"
           git push
 
