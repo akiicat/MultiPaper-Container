@@ -50,6 +50,6 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: ${{ steps.commit_msg.outputs.msg }}
-          tagging_message: ${{ steps.tag_msg.outputs.msg }}
+          commit_message: ${{ steps.commit_msg.outputs.stdout }}
+          tagging_message: ${{ steps.tag_msg.outputs.stdout }}
 
