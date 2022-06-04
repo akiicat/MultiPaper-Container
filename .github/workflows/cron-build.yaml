@@ -48,8 +48,14 @@ jobs:
         id: commit_msg
         run: echo "[AUTO] publish multipaper v$(cat version)-$(cat build)"
 
+      - name: test
+        run: echo ${{ steps.commit_msg.outputs.stdout }}
+                      steps.tes     ts.outputs.stdout
+
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: ${{ steps.commit_msg.outputs.stdout }}
+          # commit_message: ${{ steps.commit_msg.outputs.stdout }}
           tagging_message: ${{ steps.tag_msg.outputs.stdout }}
+          commit_message: Automated Change
 
