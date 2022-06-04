@@ -59,18 +59,18 @@ jobs:
 
       - name: tag_msg
         id: tag_msg
-        run: echo "v$(cat version)-$(cat build)"
+        run: echo "::set-output v$(cat version)-$(cat build)"
 
       - name: commit_msg
         id: commit_msg
-        run: echo "[AUTO] publish multipaper v$(cat version)-$(cat build)"
+        run: echo "::set-output [AUTO] publish multipaper v$(cat version)-$(cat build)"
 
       - name: test
         run: echo ${{steps.commit_msg.outputs.stdout}}
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: ${{steps.commit_msg.outputs.*}}
-          tagging_message: ${{steps.tag_msg.outputs.*}}
+          commit_message: ${{steps.commit_msg.outputs.stdout}}
+          tagging_message: ${{steps.tag_msg.outputs.stdout}}
           # commit_message: Automated Change
 
