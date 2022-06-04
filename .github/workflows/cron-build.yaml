@@ -30,6 +30,23 @@ jobs:
       - name: get version
         run: ./get-versions.sh
 
+      - name: github env
+        run: echo $GITHUB_ENV
+
+      - name: version
+        run: echo "version=$(cat version)" >> $GITHUB_ENV
+      - name: build
+        run: echo "build=$(cat build)" >> $GITHUB_ENV
+
+      - name: github env
+        run: echo $GITHUB_ENV
+
+      - name: version
+        run: echo {{ env.version }}
+
+      - name: github env
+        run: echo $GITHUB_ENV
+
       - name: version
         id: version
         run: cat version
@@ -49,13 +66,11 @@ jobs:
         run: echo "[AUTO] publish multipaper v$(cat version)-$(cat build)"
 
       - name: test
-        run: echo ${{ steps.commit_msg.outputs.stdout }}
-                      steps.tes     ts.outputs.stdout
-
+        run: echo {{ steps.commit_msg.outputs.stdout }}
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          # commit_message: ${{ steps.commit_msg.outputs.stdout }}
-          tagging_message: ${{ steps.tag_msg.outputs.stdout }}
+          commit_message: {{ steps.commit_msg.outputs.stdout }}
+          tagging_message: {{ steps.tag_msg.outputs.stdout }}
           commit_message: Automated Change
 
