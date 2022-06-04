@@ -37,6 +37,9 @@ jobs:
         id: build
         run: cat build
 
+      - name: time
+        run: date > time.txt
+
       - name: tag_msg
         id: tag_msg
         run: echo "v$(cat version)-$(cat build)"
