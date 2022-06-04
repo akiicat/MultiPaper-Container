@@ -42,7 +42,11 @@ jobs:
         run: echo $GITHUB_ENV
 
       - name: version
-        run: echo {{ env.version }}
+        run: |
+          echo ${{ env.version }}
+          echo ${{ env.build }}
+          echo $version
+          echo $build
 
       - name: github env
         run: echo $GITHUB_ENV
@@ -57,20 +61,14 @@ jobs:
       - name: time
         run: date > time.txt
 
-      - name: tag_msg
-        id: tag_msg
-        run: echo "::set-output name=vtest::v$(cat version)-$(cat build)"
-
-      - name: commit_msg
-        id: commit_msg
-        run: echo "::set-output [AUTO] publish multipaper v$(cat version)-$(cat build)"
-
-      - name: test
-        run: echo ${{steps.commit_msg.outputs.stdout}}
+      - name: info
+        id: info
+        run: echo "::set-output name=tagging_message::v$(cat version)-$(cat build)"
+        run: echo "::set-output name=commit_message::[AUTO] publish multipaper v$(cat version)-$(cat build)"
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: ${{steps.commit_msg.outputs.stdout}}
-          tagging_message: ${{steps.tag_msg.outputs.vtest}}
+          tagging_message: ${{steps.info.outputs.tagging_message}}
+          commit_message: ${{steps.info.outputs.commit_message}}
           # commit_message: Automated Change
 
