@@ -28,8 +28,8 @@ jobs:
 
       - name: tagging
         run: |
-          echo "SERVER_TAG=akiicat/test/latest,akiicat/test/${{ env.SERVER_VERSION }},akiicat/test/${{ env.VERSION }}" >> $GITHUB_ENV
-          echo "MASTER_TAG=akiicat/test/latest,akiicat/test/${{ env.MASTER_VERSION }}" >> $GITHUB_ENV
+          echo "SERVER_TAG=akiicat/test:latest,akiicat/test:${{ env.SERVER_VERSION }},akiicat/test:${{ env.VERSION }}" >> $GITHUB_ENV
+          echo "MASTER_TAG=akiicat/test:latest,akiicat/test:${{ env.MASTER_VERSION }}" >> $GITHUB_ENV
 
       - name: Build Multipaper Master and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
