@@ -47,7 +47,7 @@ jobs:
 
       - name: Build Multipaper Server and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        if: ${{ env.SERVER_DOCKERFILE != '' }
+        if: ${{ env.SERVER_DOCKERFILE != '' }}
         with:
           context: server
           push: true
