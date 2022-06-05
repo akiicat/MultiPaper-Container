@@ -43,8 +43,8 @@ jobs:
           echo "::set-output name=tagging_message::v$(cat version)-$(cat build)"
           echo "::set-output name=commit_message::[AUTO] publish multipaper v$(cat version)-$(cat build)"
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          tagging_message: ${{ env.SERVER_VERSION }}
-          commit_message: [AUTO] multipaper server ${{ env.SERVER_VERSION }}
+          #      - uses: stefanzweifel/git-auto-commit-action@v4
+          #        with:
+          #          tagging_message: ${{ env.SERVER_VERSION }}
+          #          commit_message: [AUTO] multipaper server ${{ env.SERVER_VERSION }}
 
