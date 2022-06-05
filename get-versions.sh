@@ -17,7 +17,7 @@ for version in "${versions[@]}"; do
                 set -x
 
                 # is_exist=$(echo $docker_hub_server_tags | jq -r ".[].name" | grep "$version-$build")
-                is_exist=$(echo $github_server_tags | jq -r ".[].name" | grep "$version-$build")
+                is_exist=$(echo "$github_server_tags" | jq -r ".[].name" | grep "$version-$build")
 
                 if [ -n "$is_exist" ]; then
                         continue;
@@ -25,8 +25,8 @@ for version in "${versions[@]}"; do
 
                 downloads=$(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper/versions/$version/builds/$build)
 
-                master_jar=$(echo $downloads | jq -r ".downloads[].name" | grep -i    "master")
-                server_jar=$(echo $downloads | jq -r ".downloads[].name" | grep -i -v "master")
+                master_jar=$(echo "$downloads" | jq -r ".downloads[].name" | grep -i    "master")
+                server_jar=$(echo "$downloads" | jq -r ".downloads[].name" | grep -i -v "master")
 
                 if [[ $master_jar =~ ([[:digit:]]+.[[:digit:]]+.[[:digit:]]+) ]]; then
                         master_version=${BASH_REMATCH[1]}
