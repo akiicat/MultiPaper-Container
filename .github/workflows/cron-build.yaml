@@ -32,10 +32,10 @@ jobs:
 
       - name: version
         run: |
-          echo ${{ env.VERSION }}
-          echo ${{ env.BUILD }}
-          echo ${{ env.MASTER_VERSION }}
-          echo ${{ env.SERVER_VERSION }}
+          echo "VERSION: ${{ env.VERSION }}"
+          echo "BUILD: ${{ env.BUILD }}"
+          echo "MASTER_VERSION: ${{ env.MASTER_VERSION }}"
+          echo "SERVER_VERSION: ${{ env.SERVER_VERSION }}"
 
       - name: info
         id: info
