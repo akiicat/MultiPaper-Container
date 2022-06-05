@@ -1,16 +1,14 @@
 #!/bin/bash
 
-
 # docker_hun_server_repo=${
-
 github_server_tags=$(git ls-remote --tags)
 # docker_hub_server_tags=$(wget -q https://registry.hub.docker.com/v1/repositories/akiicat/test/tags -O -)
 # docker_hub_master_tags=$(wget -q https://registry.hub.docker.com/v1/repositories/akiicat/test/tags -O -)
 
 versions=($(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper | jq -r ".versions[]"))
 for version in "${versions[@]}"; do
-        builds=($(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper/versions/$version | jq -r ".builds[]"))
 
+        builds=($(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper/versions/$version | jq -r ".builds[]"))
         for build in "${builds[@]}"; do
                 echo "-> $version-$build"
 

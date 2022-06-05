@@ -18,16 +18,13 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
         with:
-          # repo and workload scopes
           token: ${{ secrets.PAT }}
 
-      - name: get tag remote
-        run: |
-          git tag
-          git ls-remote --tags
+      - name: git tag remote
+        run: git ls-remote --tags
 
-      - name: get version
-        run: ./get-versions.sh
+      - name: next version
+        run: ./next-versions.sh
 
       - name: version
         run: |
@@ -40,6 +37,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           # repo and workload scopes
-          tagging_message: "${{ env.SERVER_VERSION }}"
-          commit_message: "[AUTO] multipaper server ${{ env.SERVER_VERSION }}"
+          tagging_message: "v${{ env.SERVER_VERSION }}"
+          commit_message: "[AUTO] multipaper server v${{ env.SERVER_VERSION }}"
 
