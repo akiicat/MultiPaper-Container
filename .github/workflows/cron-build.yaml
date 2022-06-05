@@ -30,36 +30,10 @@ jobs:
       - name: get version
         run: ./get-versions.sh
 
-      - name: github env
-        run: echo $GITHUB_ENV
-
-      - name: version
-        run: echo "version=$(cat version)" >> $GITHUB_ENV
-      - name: build
-        run: echo "build=$(cat build)" >> $GITHUB_ENV
-
-      - name: github env
-        run: echo $GITHUB_ENV
-
       - name: version
         run: |
           echo ${{ env.version }}
           echo ${{ env.build }}
-          echo $version
-          echo $build
-
-      - name: github env
-        run: echo $GITHUB_ENV
-
-      - name: version
-        id: version
-        run: cat version
-      - name: build
-        id: build
-        run: cat build
-
-      - name: time
-        run: date > time.txt
 
       - name: info
         id: info
@@ -67,9 +41,8 @@ jobs:
           echo "::set-output name=tagging_message::v$(cat version)-$(cat build)"
           echo "::set-output name=commit_message::[AUTO] publish multipaper v$(cat version)-$(cat build)"
 
-          # - uses: stefanzweifel/git-auto-commit-action@v4
-          #   with:
-          #     tagging_message: ${{steps.info.outputs.tagging_message}}
-          #     commit_message: ${{steps.info.outputs.commit_message}}
-          # commit_message: Automated Change
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          tagging_message: ${{steps.info.outputs.tagging_message}}
+          commit_message: ${{steps.info.outputs.commit_message}}
 
