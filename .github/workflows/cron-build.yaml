@@ -21,11 +21,10 @@ jobs:
           # repo and workload scopes
           token: ${{ secrets.PAT }}
 
-      - name: get tag
-        run: git tag
-
       - name: get tag remote
-        run: git ls-remote --tags
+        run: |
+          git tag
+          git ls-remote --tags
 
       - name: get version
         run: ./get-versions.sh
@@ -36,13 +35,6 @@ jobs:
           echo "BUILD: ${{ env.BUILD }}"
           echo "MASTER_VERSION: ${{ env.MASTER_VERSION }}"
           echo "SERVER_VERSION: ${{ env.SERVER_VERSION }}"
-
-          #      - name: info
-          #        id: info
-          #        run: |
-          #          echo "::set-output name=tagging_message::v$(cat version)-$(cat build)"
-          #          echo "::set-output name=commit_message::[AUTO] publish multipaper v$(cat version)-$(cat build)"
-          #
 
       - name: auto commit
         uses: stefanzweifel/git-auto-commit-action@v4
