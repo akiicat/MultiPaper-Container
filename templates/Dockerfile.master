@@ -1,6 +1,6 @@
 FROM openjdk:17-alpine
 
-EXPOSE 25565
+EXPOSE 25565/tcp
 WORKDIR /app
 
 ADD https://multipaper.io/api/v2/projects/multipaper/versions/{version}/builds/{build}/downloads/{jar_file} /

@@ -1,6 +1,7 @@
 FROM openjdk:17-alpine
 
-EXPOSE 25565
+EXPOSE 35353/tcp
+EXPOSE 25565/tcp
 WORKDIR /app
 
 ADD https://multipaper.io/api/v2/projects/multipaper/versions/{version}/builds/{build}/downloads/{jar_file} /
@@ -10,4 +11,5 @@ ENTRYPOINT if [[ -n "$EULA" ]]; then \
            fi && \
            exec java -jar /{jar_file}
 
-CMD ["-nogui", "--host=0.0.0.0", "--port=25565"]
+CMD ["-nogui", "--host=0.0.0.0"]
+
