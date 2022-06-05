@@ -17,7 +17,7 @@ for version in "${versions[@]}"; do
                 set -x
 
                 # is_exist=$(echo $docker_hub_server_tags | jq -r ".[].name" | grep "$version-$build")
-                is_exist=$(echo "$github_server_tags" | jq -r ".[].name" | grep "$version-$build")
+                is_exist=$(echo "$github_server_tags" | grep "$version-$build")
 
                 if [ -n "$is_exist" ]; then
                         continue;
