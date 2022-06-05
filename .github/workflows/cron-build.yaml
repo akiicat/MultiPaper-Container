@@ -48,6 +48,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           # repo and workload scopes
-          tagging_message: ${{ env.SERVER_VERSION }}
-          commit_message: [AUTO] multipaper server ${{ env.SERVER_VERSION }}
+          tagging_message: "${{ env.SERVER_VERSION }}"
+          commit_message: "[AUTO] multipaper server ${{ env.SERVER_VERSION }}"
 
