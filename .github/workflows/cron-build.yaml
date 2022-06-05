@@ -1,8 +1,8 @@
 name: Trigger Site Rebuild on a CRON Schedule
 
 on:
-  # schedule:
-  #   - cron: '*/30 * * * *'
+  schedule:
+    - cron: '*/30 * * * *'
   push:
     branches:
       - 'main'
@@ -32,8 +32,10 @@ jobs:
 
       - name: version
         run: |
-          echo ${{ env.version }}
-          echo ${{ env.build }}
+          echo ${{ env.VERSION }}
+          echo ${{ env.BUILD }}
+          echo ${{ env.MASTER_VERSION }}
+          echo ${{ env.SERVER_VERSION }}
 
       - name: info
         id: info
@@ -43,6 +45,6 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          tagging_message: ${{steps.info.outputs.tagging_message}}
-          commit_message: ${{steps.info.outputs.commit_message}}
+          tagging_message: ${{ env.SERVER_VERSION }}
+          commit_message: [AUTO] multipaper server ${{ env.SERVER_VERSION }}
 

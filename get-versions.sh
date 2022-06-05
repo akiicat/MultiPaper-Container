@@ -48,29 +48,11 @@ for version in "${versions[@]}"; do
                 if [[ -n "$GITHUB_ENV" ]]; then
                         echo "VERSION=$version" >> $GITHUB_ENV
                         echo "BUILD=$build" >> $GITHUB_ENV
-                        echo "SERVER_VERSION=$server_version" >> $GITHUB_ENV
                         echo "MASTER_VERSION=$master_version" >> $GITHUB_ENV
+                        echo "SERVER_VERSION=$server_version" >> $GITHUB_ENV
                 fi
 
                 exit
         done
 done
-
-# git branch -a
-# git tag
-#
-# echo "$version $build"
-#
-# echo "$version" > version
-# echo "$build" > build
-
-# export version=$version
-# export build=$build
-
-# curl \
-#   -X POST \
-#   -H "Accept: application/vnd.github.v3+json" \
-#   https://api.github.com/repos/OWNER/REPO/git/tags \
-#   -d '{"tag":"v0.0.1","message":"initial version","object":"c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c","type":"commit","tagger":{"name":"Monalisa Octocat","email":"octocat@github.com","date":"2011-06-17T14:53:35-07:00"}}'
-
 
