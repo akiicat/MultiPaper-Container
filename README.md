@@ -2,7 +2,7 @@
 
 This repository will automatically push the latest MulitPaper containers to Docker Hub.
 
-- [MultiPaper Image](https://hub.docker.com/repository/docker/akiicat/multipaper)
+- [MultiPaper Server Image](https://hub.docker.com/repository/docker/akiicat/multipaper)
 - [MultiPaper Master Image](https://hub.docker.com/repository/docker/akiicat/multipaper-master)
 
 ## MultiPaper
