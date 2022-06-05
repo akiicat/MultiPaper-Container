@@ -7,7 +7,7 @@ This repository will automatically push the latest MulitPaper containers to Dock
 
 ## MultiPaper
 
-MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/MultiPaper) is repository.
+MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/MultiPaper) is the repository.
 
 ## Usage
 
@@ -126,6 +126,20 @@ Option                                  Description
 ```
 
 </details>
+
+## Build from source
+
+```shell
+git clone https://github.com/akiicat/MultiPaper-Container.git
+
+# change version
+# git checkout <tags>
+git checkout v1.18.2-60
+
+# build
+docker build -t multipaper server
+docker build -t multipaper-master master
+```
 
 ## Debugging
 
