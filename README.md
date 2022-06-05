@@ -7,7 +7,7 @@ This repository will automatically push the latest MulitPaper containers to Dock
 
 ## MultiPaper
 
-MultiPaper is a scalable minecraft server. Any MultiPaper configuration please refer to [this repo](https://github.com/PureGero/MultiPaper).
+MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/MultiPaper) is repository.
 
 ## Usage
 
@@ -30,7 +30,7 @@ docker run -d \
         akiicat/multipaper -nogui --log-strip-color
 ```
 
-changing <your_ip_address> in command line to your master ip address. For example,
+Please changing `<your_ip_address>` in command line to your master ip address. For example,
 
 ```shell
 docker run -d \
@@ -51,7 +51,8 @@ docker run -d \
         akiicat/multipaper
 ```
 
-**Server Configuration**
+<details>
+    <summary>**Server Configuration**</summary>
 
 ```shell
 $ docker run --rm -ti --entrypoint /bin/sh akiicat/multipaper
@@ -124,7 +125,9 @@ Option                                  Description
   World name>
 ```
 
-## Container Debug
+</details>
+
+## Debugging
 
 List all log
 
@@ -138,7 +141,7 @@ Run a shell in container
 docker run --rm -ti --entrypoint /bin/sh akiicat/multipaper
 ```
 
-Run a shell to existed container
+Run a shell to existing container
 
 ```shell
 docker exec -ti akiicat/multipaper /bin/sh
