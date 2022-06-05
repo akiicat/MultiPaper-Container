@@ -21,8 +21,8 @@ jobs:
 
       - name: version
         run: |
-          echo "BUILD=$(cat server/tags | cut -d'-' -f2" >> $GITHUB_ENV
-          echo "VERSION=$(cat server/tags | cut -d'-' -f1" >> $GITHUB_ENV
+          echo "BUILD=$(cat server/tags | cut -d'-' -f2)" >> $GITHUB_ENV
+          echo "VERSION=$(cat server/tags | cut -d'-' -f1)" >> $GITHUB_ENV
           echo "SERVER_VERSION=$(cat server/tags)" >> $GITHUB_ENV
           echo "MASTER_VERSION=$(cat master/tags)" >> $GITHUB_ENV
 
