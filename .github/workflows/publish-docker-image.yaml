@@ -1,5 +1,9 @@
 name: Publish Docker image
 
+env:
+  DOCKER_HUB_SERVER_REPO: akiicat/multipaper
+  DOCKER_HUB_MASTER_REPO: akiicat/multipaper-master
+
 on:
   push:
     branches:
