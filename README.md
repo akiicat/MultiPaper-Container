@@ -52,7 +52,7 @@ docker run -d \
 ```
 
 <details>
-    <summary>**Server Configuration**</summary>
+    <summary>Server Configuration</summary>
 
 ```shell
 $ docker run --rm -ti --entrypoint /bin/sh akiicat/multipaper
