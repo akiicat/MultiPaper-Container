@@ -5,7 +5,7 @@ MultiPaper Container will automatically publish the latest MulitPaper containers
 - [MultiPaper Server Image](https://hub.docker.com/repository/docker/akiicat/multipaper)
 - [MultiPaper Master Image](https://hub.docker.com/repository/docker/akiicat/multipaper-master)
 
-## MultiPaper
+## What is MultiPaper
 
 MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/MultiPaper) is the repository.
 
@@ -19,8 +19,8 @@ docker run -d -p 35353:35353 akiicat/multipaper-master
 
 ### Running MultiPaper Server
 
-If you want to customize server name, you can add `-DbungeecordName=server1` to `JAVA_TOOL_OPTIONS`.
-More `JAVA_TOOL_OPTIONS` configuration please refer [here](https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md).
+If you want to the customize server name, you can add `-DbungeecordName=server1` to `JAVA_TOOL_OPTIONS`.
+For more `JAVA_TOOL_OPTIONS` configuration, please refer to [here](https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md).
 
 ```shell
 docker run -d \
@@ -30,7 +30,7 @@ docker run -d \
         akiicat/multipaper -nogui --log-strip-color
 ```
 
-Please changing `<your_ip_address>` in command line to your master ip address. For example,
+Please changing `<your_ip_address>` in the command line to your master ip address. For example,
 
 ```shell
 docker run -d \
@@ -40,7 +40,7 @@ docker run -d \
         akiicat/multipaper
 ```
 
-If you want to save runtime file out of the container, you can mount the directory to `/app`.
+If you want to the save runtime file outside the container, you can mount the directory to `/app`.
 
 ```shell
 docker run -d \
@@ -143,7 +143,7 @@ docker build -t multipaper-master master
 
 ## Debugging
 
-List all log
+List all logs
 
 ```shell
 docker logs <container_name>
@@ -155,7 +155,7 @@ Run a shell in container
 docker run --rm -ti --entrypoint /bin/sh akiicat/multipaper
 ```
 
-Run a shell to existing container
+Run a shell to an existing container
 
 ```shell
 docker exec -ti akiicat/multipaper /bin/sh
