@@ -7,7 +7,7 @@ MultiPaper Container will automatically publish the latest MulitPaper containers
 
 ## What is MultiPaper
 
-MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/MultiPaper) is the repository.
+MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/MultiPaper) is the repository. You can also download the MultiPaper Jar from [MultiPaper.io](https://multipaper.io/download.html)
 
 ## How to Use
 
