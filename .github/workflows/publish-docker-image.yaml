@@ -37,8 +37,8 @@ jobs:
 
       - name: tagging
         run: |
-          echo "SERVER_TAG=${{ env.DOCKER_HUB_SERVER_REPO }}:latest,${{ env.DOCKER_HUB_SERVER_REPO }}:${{ env.SERVER_VERSION }},${{ env.DOCKER_HUB_SERVER_REPO }}:${{ env.VERSION }}" >> $GITHUB_ENV
-          echo "MASTER_TAG=${{ env.DOCKER_HUB_MASTER_REPO }}:latest,${{ env.DOCKER_HUB_MASTER_REPO }}:${{ env.MASTER_VERSION }}" >> $GITHUB_ENV
+          echo "SERVER_TAG=${{ env.DOCKER_HUB_SERVER_REPO }}:${{ env.SERVER_VERSION }},${{ env.DOCKER_HUB_SERVER_REPO }}:${{ env.VERSION }},${{ env.DOCKER_HUB_SERVER_REPO }}:latest" >> $GITHUB_ENV
+          echo "MASTER_TAG=${{ env.DOCKER_HUB_MASTER_REPO }}:${{ env.MASTER_VERSION }},${{ env.DOCKER_HUB_MASTER_REPO }}:latest" >> $GITHUB_ENV
 
       - name: Build Multipaper Master and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
