@@ -1,6 +1,6 @@
 # MultiPaper Container
 
-This repository will automatically push the latest MulitPaper containers to Docker Hub.
+MultiPaper Container will automatically push the latest MulitPaper containers to Docker Hub.
 
 - [MultiPaper Server Image](https://hub.docker.com/repository/docker/akiicat/multipaper)
 - [MultiPaper Master Image](https://hub.docker.com/repository/docker/akiicat/multipaper-master)
@@ -9,15 +9,15 @@ This repository will automatically push the latest MulitPaper containers to Dock
 
 MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/MultiPaper) is the repository.
 
-## Usage
+## How to Use
 
-### Running Master Container
+### Running MultiPaper Master
 
 ```shell
 docker run -d -p 35353:35353 akiicat/multipaper-master
 ```
 
-### Running Server Container
+### Running MultiPaper Server
 
 If you want to customize server name, you can add `-DbungeecordName=server1` to `JAVA_TOOL_OPTIONS`.
 More `JAVA_TOOL_OPTIONS` configuration please refer [here](https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md).
@@ -40,7 +40,7 @@ docker run -d \
         akiicat/multipaper
 ```
 
-If you want to save runtime file out of the container, you can mount the directory to `/app` in contaner
+If you want to save runtime file out of the container, you can mount the directory to `/app`.
 
 ```shell
 docker run -d \
