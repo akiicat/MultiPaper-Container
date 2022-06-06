@@ -1,6 +1,6 @@
 # MultiPaper Container
 
-MultiPaper Container will automatically push the latest MulitPaper containers to Docker Hub.
+MultiPaper Container will automatically publish the latest MulitPaper containers to Docker Hub.
 
 - [MultiPaper Server Image](https://hub.docker.com/repository/docker/akiicat/multipaper)
 - [MultiPaper Master Image](https://hub.docker.com/repository/docker/akiicat/multipaper-master)
@@ -45,9 +45,9 @@ If you want to save runtime file out of the container, you can mount the directo
 ```shell
 docker run -d \
         -p 25565:25565 \
-        -v <your_location>:/app \
+        -v <your_folder>:/app \
         -e EULA=true \
-        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=192.168.0.193:35353"
+        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=<your_ip_address>:35353" \
         akiicat/multipaper
 ```
 
