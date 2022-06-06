@@ -2,8 +2,8 @@
 
 MultiPaper Container will automatically publish the latest MulitPaper containers to Docker Hub.
 
-- [MultiPaper Server Image](https://hub.docker.com/repository/docker/akiicat/multipaper)
-- [MultiPaper Master Image](https://hub.docker.com/repository/docker/akiicat/multipaper-master)
+- [MultiPaper Server Image](https://hub.docker.com/r/akiicat/multipaper)
+- [MultiPaper Master Image](https://hub.docker.com/r/akiicat/multipaper-master)
 
 ## What is MultiPaper
 
