@@ -161,3 +161,8 @@ Run a shell to existing container
 docker exec -ti akiicat/multipaper /bin/sh
 ```
 
+## License
+
+- MultiPaper is licensed under [GPLv3](https://github.com/PureGero/MultiPaper/blob/main/LICENSE.txt)
+- MultiPaper-Master is licensed under [MIT](https://github.com/PureGero/MultiPaper/blob/main/MultiPaper-Master/LICENSE.txt)
+
