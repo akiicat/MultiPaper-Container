@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine
+FROM eclipse-temurin:17.0.3_7-jre-alpine
 
 EXPOSE 25565/tcp
 WORKDIR /app
