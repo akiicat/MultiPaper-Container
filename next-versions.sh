@@ -1,25 +1,20 @@
 #!/bin/bash
 
-# docker_hun_server_repo=${
 github_server_tags=$(git ls-remote --tags)
-# docker_hub_server_tags=$(wget -q https://registry.hub.docker.com/v1/repositories/akiicat/test/tags -O -)
-# docker_hub_master_tags=$(wget -q https://registry.hub.docker.com/v1/repositories/akiicat/test/tags -O -)
 
 versions=($(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper | jq -r ".versions[]"))
 for version in "${versions[@]}"; do
 
         builds=($(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper/versions/$version | jq -r ".builds[]"))
         for build in "${builds[@]}"; do
-                echo "-> $version-$build"
 
-                set -x
-
-                # is_exist=$(echo $docker_hub_server_tags | jq -r ".[].name" | grep "$version-$build")
                 is_exist=$(echo "$github_server_tags" | grep "$version-$build")
 
                 if [ -n "$is_exist" ]; then
                         continue;
                 fi
+
+                echo "The next version: $version-$build"
 
                 downloads=$(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper/versions/$version/builds/$build)
 
