@@ -17,46 +17,77 @@ MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/Mu
 docker run -d -p 35353:35353 akiicat/multipaper-master
 ```
 
+<details>
+    <summary>Advance Usage</summary>
+
+Here are some useful Docker `run` command [options](https://docs.docker.com/engine/reference/run)
+
+```
+-d   : Detached mode: Run container in the background, print new container id
+-t   : Allocate a pseudo-tty
+-i   : Keep STDIN open even if not attached
+--rm : Automatically clean up the container and remove the file system when the container exits
+-p   : Publish or expose port <local_port>:<container_port>
+-v   : Persisting your data <local_path>:<container_path>
+-u   : Change user id (UID)
+```
+
+Run in proxy mode.
+
+```shell
+docker run -d -p 35353:35353 -p 25565:25565 akiicat/multipaper-master 35353 25565
+```
+
+Run in foreground and clean up the container when it exits.
+
+```shell
+docker run -ti --rm -p 35353:35353 akiicat/multipaper-master
+```
+
+Use the existing world or save your world in the local directory. Your path must be an absolute path.
+
+```shell
+mkdir -p $(pwd)/master
+docker run -d -p 35353:35353 -v $(pwd)/master:/app akiicat/multipaper-master
+```
+
+The default user is **multipaper** with uid 1000. You can also run as root, but this is not recommended.
+
+```shell
+docker run -d -p 35353:35353 -u 0 akiicat/multipaper-master
+```
+
+Limit maximum memory
+
+```shell
+docker run -d \
+        -p 35353:35353 \
+        -e JAVA_TOOL_OPTIONS="-Xmx1G" \
+        akiicat/multipaper-master
+```
+
+Other Java configurations can also be added to `JAVA_TOOL_OPTIONS`.
+
+</details>
+
 ### Running MultiPaper Server
 
-If you want to the customize server name, you can add `-DbungeecordName=server1` to `JAVA_TOOL_OPTIONS`.
-For more MultiPaper `JAVA_TOOL_OPTIONS` configuration, please refer to [here](https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md).
-
-```shell
-docker run -d \
-        -p 25565:25565 \
-        -e EULA=true \
-        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=<your_ip_address>:35353" \
-        akiicat/multipaper -nogui --log-strip-color
-```
-
-Please changing `<your_ip_address>` in the command line to your master ip address. For example,
-
-```shell
-docker run -d \
-        -p 25565:25565 \
-        -e EULA=true \
-        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=192.168.0.193:35353" \
-        akiicat/multipaper
-```
-
-If you want to the save runtime file outside the container, you can mount the directory to `/app`.
-
-```shell
-docker run -d \
-        -p 25565:25565 \
-        -v <your_folder>:/app \
-        -e EULA=true \
-        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=<your_ip_address>:35353" \
-        akiicat/multipaper
-```
+- For more MultiPaper `JAVA_TOOL_OPTIONS` configuration, please refer to [here](https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md). For example, if you want to the customize server name, you can add `-DbungeecordName=server1` to `JAVA_TOOL_OPTIONS`.
+- For MultiPaper server options, you can add them to the end of the command line.
 
 <details>
-    <summary>Server Configuration</summary>
+    <summary>Server Options</summary>
+
+You can execute the following command to get the latest options.
 
 ```shell
-$ docker run --rm -ti --entrypoint /bin/sh akiicat/multipaper
-/app # java -jar /multipaper-1.18.2-65.jar --help
+docker run --rm akiicat/multipaper --help
+```
+
+For example,
+
+```shell
+$ docker run --rm akiicat/multipaper --help
 Downloading mojang_1.18.2.jar
 Applying patches
 Starting org.bukkit.craftbukkit.Main
@@ -127,6 +158,36 @@ Option                                  Description
 
 </details>
 
+
+```shell
+docker run -d \
+        -p 25565:25565 \
+        -e EULA=true \
+        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=<your_ip_address>:35353" \
+        akiicat/multipaper [server_options]
+```
+
+Please changing `<your_ip_address>` in the previous command to your master ip address. For example,
+
+```shell
+docker run -d \
+        -p 25565:25565 \
+        -e EULA=true \
+        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=192.168.0.193:35353" \
+        akiicat/multipaper --max-players 30
+```
+
+If you want to the save runtime file outside the container, you can mount the directory to `/app`.
+
+```shell
+docker run -d \
+        -p 25565:25565 \
+        -v $(pwd)/<your_folder>:/app \
+        -e EULA=true \
+        -e JAVA_TOOL_OPTIONS="-Xmx1G -DmultipaperMasterAddress=<your_ip_address>:35353" \
+        akiicat/multipaper
+```
+
 ## Build from source
 
 ```shell
@@ -139,6 +200,9 @@ git checkout v1.18.2-60
 # build
 docker build -t multipaper server
 docker build -t multipaper-master master
+
+# list images
+docker images | grep multipaper
 ```
 
 ## Debugging
@@ -146,19 +210,26 @@ docker build -t multipaper-master master
 List all logs
 
 ```shell
-docker logs <container_name>
+docker logs <container_name_or_container_id>
+docker logs <container_name_or_container_id> -f     # Follow log output
 ```
 
-Run a shell in container
+Run a shell in a new container
 
 ```shell
-docker run --rm -ti --entrypoint /bin/sh akiicat/multipaper
+docker run -ti --rm--entrypoint /bin/sh akiicat/multipaper
 ```
 
 Run a shell to an existing container
 
 ```shell
-docker exec -ti akiicat/multipaper /bin/sh
+docker exec -ti <container_name_or_container_id> /bin/sh
+```
+
+Container detail infomation
+
+```shell
+docker inspect <container_name_or_container_id>
 ```
 
 ## License
