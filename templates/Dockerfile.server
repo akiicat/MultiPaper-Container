@@ -4,12 +4,8 @@ EXPOSE 35353/tcp
 EXPOSE 25565/tcp
 WORKDIR /app
 
-ADD https://multipaper.io/api/v2/projects/multipaper/versions/{version}/builds/{build}/downloads/{jar_file} /
+ENTRYPOINT ["/run.sh", "/{jar_file}"]
+CMD []
 
-ENTRYPOINT if [[ -n "$EULA" ]]; then \
-                echo "eula=$EULA" > eula.txt; \
-           fi && \
-           exec java -jar /{jar_file}
-
-CMD ["-nogui", "--host=0.0.0.0"]
+ADD run.sh https://multipaper.io/api/v2/projects/multipaper/versions/{version}/builds/{build}/downloads/{jar_file} /
 

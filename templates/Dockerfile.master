@@ -3,8 +3,8 @@ FROM eclipse-temurin:17.0.3_7-jre-alpine
 EXPOSE 25565/tcp
 WORKDIR /app
 
+ENTRYPOINT ["java", "-jar", "/{jar_file}"]
+CMD []
+
 ADD https://multipaper.io/api/v2/projects/multipaper/versions/{version}/builds/{build}/downloads/{jar_file} /
 
-ENTRYPOINT exec java -jar /{jar_file}
-
-CMD []
