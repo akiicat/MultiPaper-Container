@@ -8,7 +8,7 @@ RUN addgroup -g 1000 multipaper && \
     adduser -h /app -u 1000 -G multipaper -D multipaper
 USER multipaper
 
-ENTRYPOINT ["/run.sh", "/multipaper-1.18.2-72.jar"]
+ENTRYPOINT ["/run.sh", "/multipaper-1.18.2-73.jar"]
 
-ADD --chown=multipaper:multipaper run.sh https://multipaper.io/api/v2/projects/multipaper/versions/1.18.2/builds/72/downloads/multipaper-1.18.2-72.jar /
+ADD --chown=multipaper:multipaper run.sh https://multipaper.io/api/v2/projects/multipaper/versions/1.18.2/builds/73/downloads/multipaper-1.18.2-73.jar /
 
