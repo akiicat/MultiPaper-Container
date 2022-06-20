@@ -21,7 +21,7 @@ docker run -d -p 35353:35353 akiicat/multipaper-master
 ### Running MultiPaper Server
 
 If you want to the customize server name, you can add `-DbungeecordName=server1` to `JAVA_TOOL_OPTIONS`.
-For more MultiPaper `JAVA_TOOL_OPTIONS` configuration, please refer to [Multipaper yaml](https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md) and [Multipaper command-line-options](https://github.com/PureGero/MultiPaper#command-line-options).
+For more MultiPaper `JAVA_TOOL_OPTIONS` configuration, please refer to [MULTIPAPER_YAML.md](https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md) and [MultiPaper command-line-options](https://github.com/PureGero/MultiPaper#command-line-options).
 
 ```shell
 docker run -d \
@@ -41,10 +41,10 @@ docker run -d \
         akiicat/multipaper --max-players 30
 ```
 
-For MultiPaper server options, you can add them to the end of the command line.
+For MultiPaper server configurations, you can add them to the end of the command line.
 
 <details>
-    <summary>Server Options</summary>
+    <summary>Server Configurations</summary>
 
 You can execute the following command to get the latest options.
 
