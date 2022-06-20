@@ -1,4 +1,4 @@
-name: Publish Docker image
+name: Publish Docker Image
 
 env:
   DOCKER_HUB_SERVER_REPO: akiicat/multipaper
@@ -23,19 +23,19 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: check file exist
+      - name: Check dockerfiles exist
         run: |
           echo "MASTER_DOCKERFILE=$(ls master/Dockerfile)" >> $GITHUB_ENV
           echo "SERVER_DOCKERFILE=$(ls server/Dockerfile)" >> $GITHUB_ENV
 
-      - name: version
+      - name: Multipaper version
         run: |
           echo "BUILD=$(cat server/tags | cut -d'-' -f2)" >> $GITHUB_ENV
           echo "VERSION=$(cat server/tags | cut -d'-' -f1)" >> $GITHUB_ENV
           echo "SERVER_VERSION=$(cat server/tags)" >> $GITHUB_ENV
           echo "MASTER_VERSION=$(cat master/tags)" >> $GITHUB_ENV
 
-      - name: tagging
+      - name: Docker image tags
         run: |
           echo "SERVER_TAG=${{ env.DOCKER_HUB_SERVER_REPO }}:${{ env.SERVER_VERSION }},${{ env.DOCKER_HUB_SERVER_REPO }}:${{ env.VERSION }},${{ env.DOCKER_HUB_SERVER_REPO }}:latest" >> $GITHUB_ENV
           echo "MASTER_TAG=${{ env.DOCKER_HUB_MASTER_REPO }}:${{ env.MASTER_VERSION }},${{ env.DOCKER_HUB_MASTER_REPO }}:latest" >> $GITHUB_ENV
@@ -49,7 +49,7 @@ jobs:
           tags: ${{ env.MASTER_TAG }}
           labels: master
 
-      - name: Build Multipaper Server and push Docker image
+      - name: Build Multipaper Server and Push Docker Image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         if: ${{ env.SERVER_DOCKERFILE != '' }}
         with:

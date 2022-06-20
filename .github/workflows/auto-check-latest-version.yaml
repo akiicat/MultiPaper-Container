@@ -20,20 +20,20 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKENS }}
 
-      - name: git tag remote
+      - name: Show repo tags
         run: git ls-remote --tags
 
-      - name: next version
+      - name: Get next version
         run: ./next-versions.sh
 
-      - name: version
+      - name: Multipaper version
         run: |
           echo "VERSION: ${{ env.VERSION }}"
           echo "BUILD: ${{ env.BUILD }}"
           echo "MASTER_VERSION: ${{ env.MASTER_VERSION }}"
           echo "SERVER_VERSION: ${{ env.SERVER_VERSION }}"
 
-      - name: auto commit
+      - name: Auto commit to Github
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           # repo and workload scopes
