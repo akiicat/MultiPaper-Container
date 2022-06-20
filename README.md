@@ -1,9 +1,16 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/akiicat/MultiPaper-Container/Publish%20Docker%20Image?label=Publish%20Docker%20Image)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/akiicat/MultiPaper-Container/Auto%20Check%20Latest%20Version?label=Auto%20Check%20Latest%20Version)
+
 # MultiPaper Container
 
 MultiPaper Container will automatically publish the latest MulitPaper containers to Docker Hub.
 
 - [MultiPaper Server Image](https://hub.docker.com/r/akiicat/multipaper)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/akiicat/multipaper)
+![Docker Pulls](https://img.shields.io/docker/pulls/akiicat/multipaper)
 - [MultiPaper Master Image](https://hub.docker.com/r/akiicat/multipaper-master)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/akiicat/multipaper-master)
+![Docker Pulls](https://img.shields.io/docker/pulls/akiicat/multipaper-master)
 
 ## What is MultiPaper
 
