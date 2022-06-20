@@ -1,3 +1,4 @@
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/akiicat/MultiPaper-Container)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/akiicat/MultiPaper-Container/Publish%20Docker%20Image?label=Publish%20Docker%20Image)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/akiicat/MultiPaper-Container/Auto%20Check%20Latest%20Version?label=Auto%20Check%20Latest%20Version)
 
@@ -22,7 +23,6 @@ MultiPaper is a scalable minecraft server. [Here](https://github.com/PureGero/Mu
 
 ```shell
 docker run -d -p 35353:35353 akiicat/multipaper-master
-
 ```
 
 ### Running MultiPaper Server
@@ -138,6 +138,9 @@ Option                                  Description
 Here are some useful Docker `run` command [options](https://docs.docker.com/engine/reference/run).
 Because both the server and the master are the same, we use the Multipaper Master as an example.
 
+<details>
+    <summary>Docker options</summary>
+
 ```
 -d   : Detached mode: Run container in the background, print new container id
 -t   : Allocate a pseudo-tty
@@ -147,6 +150,8 @@ Because both the server and the master are the same, we use the Multipaper Maste
 -v   : Persisting your data <local_path>:<container_path>
 -u   : Change user id (UID)
 ```
+
+</details>
 
 Run in foreground and clean up the container when it exits.
 
@@ -177,6 +182,15 @@ docker run -d \
 ```
 
 Other Java configurations can also be added to `JAVA_TOOL_OPTIONS`.
+
+You can obtain the latest version of the MultiPaper Container by requesting the following command.
+
+```shell
+SERVER_VERSION=$(curl https://raw.githubusercontent.com/akiicat/MultiPaper-Container/main/server/tags)
+MASTER_VERSION=$(curl https://raw.githubusercontent.com/akiicat/MultiPaper-Container/main/master/tags)
+echo $SERVER_VERSION
+echo $MASTER_VERSION
+```
 
 ## Build from source
 
