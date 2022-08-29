@@ -10,5 +10,5 @@ USER multipaper
 
 ENTRYPOINT ["java", "-jar", "/MultiPaper-Master-2.10.1-all.jar"]
 
-ADD --chown=multipaper:multipaper https://multipaper.io/api/v2/projects/multipaper/versions/1.19.2/builds/14/downloads/MultiPaper-Master-2.10.1-all.jar /
+ADD --chown=multipaper:multipaper https://multipaper.io/api/v2/projects/multipaper/versions/1.19.2/builds/15/downloads/MultiPaper-Master-2.10.1-all.jar /
 
