@@ -1,6 +1,6 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/akiicat/MultiPaper-Container)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/akiicat/MultiPaper-Container/Publish%20Docker%20Image?label=Publish%20Docker%20Image)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/akiicat/MultiPaper-Container/Auto%20Check%20Latest%20Version?label=Auto%20Check%20Latest%20Version)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/akiicat/MultiPaper-Container/publish-docker-image.yaml?label=Publish%20Docker%20Image)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/akiicat/MultiPaper-Container/auto-check-latest-version.yaml?label=Auto%20Check%20Latest%20Version)
 
 # MultiPaper Container
 
