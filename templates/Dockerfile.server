@@ -10,5 +10,5 @@ USER multipaper
 
 ENTRYPOINT ["/run.sh", "/{jar_file}"]
 
-ADD --chown=multipaper:multipaper run.sh https://multipaper.io/api/v2/projects/multipaper/versions/{version}/builds/{build}/downloads/{jar_file} /
+ADD --chown=multipaper:multipaper run.sh https://api.multipaper.io/v2/projects/multipaper/versions/{version}/builds/{build}/downloads/{jar_file} /
 

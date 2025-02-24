@@ -2,11 +2,13 @@
 
 github_server_tags=$(git ls-remote --tags)
 
-versions=($(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper | jq -r ".versions[]"))
+versions=($(curl -sS -X "GET" https://api.multipaper.io/v2/projects/multipaper | jq -r ".versions[]"))
 for version in "${versions[@]}"; do
+        echo "Version: $version"
 
-        builds=($(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper/versions/$version | jq -r ".builds[]"))
+        builds=($(curl -sS -X "GET" https://api.multipaper.io/v2/projects/multipaper/versions/$version | jq -r ".builds[]"))
         for build in "${builds[@]}"; do
+                echo "Version: $build"
 
                 is_exist=$(echo "$github_server_tags" | grep "$version-$build")
 
@@ -16,7 +18,7 @@ for version in "${versions[@]}"; do
 
                 echo "The next version: $version-$build"
 
-                downloads=$(curl -sS -X "GET" https://multipaper.io/api/v2/projects/multipaper/versions/$version/builds/$build)
+                downloads=$(curl -sS -X "GET" https://api.multipaper.io/v2/projects/multipaper/versions/$version/builds/$build)
 
                 master_jar=$(echo "$downloads" | jq -r ".downloads[].name" | grep -i    "master")
                 server_jar=$(echo "$downloads" | jq -r ".downloads[].name" | grep -i -v "master")
