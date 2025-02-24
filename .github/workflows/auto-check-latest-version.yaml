@@ -34,9 +34,9 @@ jobs:
           echo "SERVER_VERSION: ${{ env.SERVER_VERSION }}"
 
       - name: Auto commit to Github
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: actions-js/push@master
         with:
-          # repo and workload scopes
-          tagging_message: "v${{ env.SERVER_VERSION }}"
-          commit_message: "[AUTO] multipaper server v${{ env.SERVER_VERSION }}"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: "v${{ env.SERVER_VERSION }}"
+          message: "[AUTO] multipaper server v${{ env.SERVER_VERSION }}"
 
