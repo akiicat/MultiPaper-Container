@@ -18,7 +18,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKENS }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show repo tags
         run: git ls-remote --tags
