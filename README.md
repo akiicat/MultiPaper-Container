@@ -1,17 +1,15 @@
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/akiicat/MultiPaper-Container)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/akiicat/MultiPaper-Container/publish-docker-image.yaml?label=Publish%20Docker%20Image)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/akiicat/MultiPaper-Container/auto-check-latest-version.yaml?label=Auto%20Check%20Latest%20Version)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/akiicat/MultiPaper-Container?label=Version)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/akiicat/MultiPaper-Container/publish-docker-image.yaml?label=Publish%20Docker%20Image)](https://github.com/akiicat/MultiPaper-Container/actions/workflows/publish-docker-image.yaml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/akiicat/MultiPaper-Container/auto-check-latest-version.yaml?label=Auto%20Check%20Latest%20Version)](https://github.com/akiicat/MultiPaper-Container/actions/workflows/auto-check-latest-version.yaml)
+[![MultiPaper Server Docker Image Version](https://img.shields.io/docker/v/akiicat/multipaper?label=MultiPaper%20Server%20Image)](https://hub.docker.com/r/akiicat/multipaper)
+[![MultiPaper Master Docker Image Version](https://img.shields.io/docker/v/akiicat/multipaper-master?label=MultiPaper%20Master%20Image)](https://hub.docker.com/r/akiicat/multipaper-master)
 
 # MultiPaper Container
 
 MultiPaper Container will automatically publish the latest MulitPaper containers to Docker Hub.
 
 - [MultiPaper Server Image](https://hub.docker.com/r/akiicat/multipaper)
-![Docker Image Version (latest by date)](https://img.shields.io/docker/v/akiicat/multipaper)
-![Docker Pulls](https://img.shields.io/docker/pulls/akiicat/multipaper)
 - [MultiPaper Master Image](https://hub.docker.com/r/akiicat/multipaper-master)
-![Docker Image Version (latest by date)](https://img.shields.io/docker/v/akiicat/multipaper-master)
-![Docker Pulls](https://img.shields.io/docker/pulls/akiicat/multipaper-master)
 
 ## What is MultiPaper
 
