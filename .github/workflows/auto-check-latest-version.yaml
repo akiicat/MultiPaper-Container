@@ -16,7 +16,7 @@ jobs:
       contents: read
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKENS }}
 
