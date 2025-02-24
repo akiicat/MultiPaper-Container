@@ -33,10 +33,20 @@ jobs:
           echo "MASTER_VERSION: ${{ env.MASTER_VERSION }}"
           echo "SERVER_VERSION: ${{ env.SERVER_VERSION }}"
 
-      - name: Auto commit to Github
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tags: "v${{ env.SERVER_VERSION }}"
-          message: "[AUTO] multipaper server v${{ env.SERVER_VERSION }}"
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Commit
+        run: |
+          git add -A
+          git commit -m "[AUTO] multipaper server v${{ env.SERVER_VERSION }}"
+
+      - name: Add Tag
+        run: |
+          git tag "v${{ env.SERVER_VERSION }}"
+
+      - name: Push
+        run:
+          git push --atomic origin main "v${{ env.SERVER_VERSION }}"
