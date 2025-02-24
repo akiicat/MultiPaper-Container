@@ -33,6 +33,11 @@ for version in "${versions[@]}"; do
                 echo "master_version: $master_version"
                 echo "server_version: $server_version"
 
+                if [[ -z "$master_version" ]]; then
+                        echo "Next: No master version found"
+                        continue
+                fi
+
                 mkdir -p server
                 mkdir -p master
                 sed -e "s/{version}/$version/g" -e "s/{build}/$build/g" -e "s/{jar_file}/$server_jar/g" templates/Dockerfile.server > server/Dockerfile
