@@ -41,7 +41,7 @@ jobs:
       - name: Commit
         run: |
           git add -A
-          git commit -m "[AUTO] multipaper server v${{ env.SERVER_VERSION }}\nCo-authored-by: akiicat <aaaa1379@gmail.com>"
+          git commit -m "[AUTO] multipaper server v${{ env.SERVER_VERSION }}" -m "Co-authored-by: akiicat <aaaa1379@gmail.com>"
 
       - name: Add Tag
         run: |
