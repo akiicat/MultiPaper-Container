@@ -8,7 +8,7 @@ RUN addgroup -g 1000 multipaper && \
     adduser -h /app -u 1000 -G multipaper -D multipaper
 USER multipaper
 
-ENTRYPOINT ["java", "-jar", "/multipaper-master-2.11.0-all.jar"]
+ENTRYPOINT ["java", "-jar", "/multipaper-master-2.11.1-all.jar"]
 
-ADD --chown=multipaper:multipaper https://api.multipaper.io/v2/projects/multipaper/versions/1.20.1/builds/26/downloads/multipaper-master-2.11.0-all.jar /
+ADD --chown=multipaper:multipaper https://api.multipaper.io/v2/projects/multipaper/versions/1.20.1/builds/27/downloads/multipaper-master-2.11.1-all.jar /
 
