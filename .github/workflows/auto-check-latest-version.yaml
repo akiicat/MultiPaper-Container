@@ -35,13 +35,13 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "akiicat"
+          git config user.email "aaaa1379@gmail.com"
 
       - name: Commit
         run: |
           git add -A
-          git commit -m "[AUTO] multipaper server v${{ env.SERVER_VERSION }}" -m "Co-authored-by: akiicat <aaaa1379@gmail.com>"
+          git commit -m "[AUTO] multipaper server v${{ env.SERVER_VERSION }}" -m "Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
 
       - name: Add Tag
         run: |
